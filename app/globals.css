@@ -45,6 +45,18 @@ a {
     scale(var(--camera-scale));
   filter: saturate(0.8);
   opacity: 0.68;
+  -webkit-mask-image: radial-gradient(
+    ellipse 78% 58% at 50% 68%,
+    #000 46%,
+    rgba(0, 0, 0, 0.72) 66%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 78% 58% at 50% 68%,
+    #000 46%,
+    rgba(0, 0, 0, 0.72) 66%,
+    transparent 100%
+  );
   will-change: transform;
 }
 .sky-wash {

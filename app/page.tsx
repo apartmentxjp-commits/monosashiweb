@@ -1,10 +1,10 @@
 'use client';
 
 import { CSSProperties, useEffect, useRef, useState } from 'react';
+import { getCharacterAsset } from './story/assets';
 import { getStoryState, rangeProgress } from './story/progress';
 
 const YEARS = ['0年', '5年', '10年', '20年', '30年', '40年', '50年'];
-const SPRITES = ['0%', '20%', '40%', '60%', '80%', '100%'];
 
 function useStoryProgress(stageRef: React.RefObject<HTMLElement | null>) {
   const [progress, setProgress] = useState(0);
@@ -35,7 +35,7 @@ function AnimatedStory() {
   const stageRef = useRef<HTMLElement>(null);
   const progress = useStoryProgress(stageRef);
   const state = getStoryState(progress);
-  const vars = { '--camera-x': state.cameraX, '--camera-scale': state.cameraScale, '--sprite-x': SPRITES[state.lifeStage], '--step': Math.sin(state.walkPhase * Math.PI) * 3 } as CSSProperties;
+  const vars = { '--camera-x': state.cameraX, '--camera-scale': state.cameraScale, '--step': Math.sin(state.walkPhase * Math.PI) * 2 } as CSSProperties;
   return <section ref={stageRef} className="story-scroll" aria-label="人生と不動産の50年の物語">
     <div className="story-sticky" style={vars}>
       <div className="story-world" aria-hidden="true" /><div className="sky-wash" aria-hidden="true" />
@@ -44,7 +44,7 @@ function AnimatedStory() {
       <div className="scene-copy encounter-copy" style={{ opacity: state.encounter }}><p className="eyebrow">A NEW ENCOUNTER</p><h2>出会いが、<br />未来を動かす。</h2></div>
       <div className="decision-note" style={{ opacity: state.decision, transform: `translateY(${(1 - state.decision) * 12}px) rotate(-4deg)` }}>これにしよう</div>
       <Ruler reveal={state.rulerReveal} />
-      <div className="character" role="img" aria-label="ものさしの上を未来へ歩く家族" />
+      <img className={`character character-stage-${state.lifeStage + 1}`} src={getCharacterAsset(state.lifeStage)} alt="ものさしの上を未来へ歩く家族" />
       <div className="growth-copy" style={{ opacity: rangeProgress(progress, .43, .52) * (1 - rangeProgress(progress, .77, .86)) }}><p className="eyebrow">LIFE &amp; ASSET</p><h2>時間とともに、<br />人生が豊かになる。</h2></div>
       <div className="year-now" style={{ opacity: state.rulerReveal * (1 - state.finalReveal) }}><span>{YEARS[Math.min(6, Math.floor(rangeProgress(progress, .33, .9) * 6.99))]}</span><small>SCROLL TO THE FUTURE</small></div>
       <div className="final-message" style={{ opacity: state.finalReveal, transform: `translateY(${(1 - state.finalReveal) * 26}px)`, pointerEvents: state.finalReveal > .9 ? 'auto' : 'none' }}>

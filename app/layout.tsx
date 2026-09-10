@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/og/mono-sashi-x-og.png',
-        width: 1731,
+        width: 1730,
         height: 909,
         alt: '物件選びを、もっと安全に。｜MONO-SASHI',
       },

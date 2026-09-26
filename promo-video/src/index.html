@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>MONO-SASHI — 15s promo (render stage)</title>
+    <style>
+      @font-face { font-family: 'Manrope'; font-weight: 200; src: url('../node_modules/@fontsource/manrope/files/manrope-latin-200-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Manrope'; font-weight: 300; src: url('../node_modules/@fontsource/manrope/files/manrope-latin-300-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Manrope'; font-weight: 500; src: url('../node_modules/@fontsource/manrope/files/manrope-latin-500-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Manrope'; font-weight: 600; src: url('../node_modules/@fontsource/manrope/files/manrope-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Manrope'; font-weight: 700; src: url('../node_modules/@fontsource/manrope/files/manrope-latin-700-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'JetBrains Mono'; font-weight: 200; src: url('../node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-200-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'JetBrains Mono'; font-weight: 300; src: url('../node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-300-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'JetBrains Mono'; font-weight: 400; src: url('../node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2') format('woff2'); }
+      html, body { margin: 0; background: #000; overflow: hidden; }
+      #gl { display: block; width: 1920px; height: 1080px; }
+      #ov { display: none; }
+    </style>
+    <script type="importmap">
+      { "imports": {
+          "three": "../node_modules/three/build/three.module.js",
+          "three/addons/": "../node_modules/three/examples/jsm/"
+      } }
+    </script>
+  </head>
+  <body>
+    <canvas id="gl" width="1920" height="1080"></canvas>
+    <canvas id="ov" width="1920" height="1080"></canvas>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "mono-sashi-promo-video",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render": "node render.mjs"
+  },
+  "dependencies": {
+    "@fontsource/jetbrains-mono": "5.2.5",
+    "@fontsource/manrope": "5.2.5",
+    "three": "0.170.0"
+  }
+}
